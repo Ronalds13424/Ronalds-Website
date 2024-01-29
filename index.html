@@ -1,18 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ronalds</title>
+    <title>Your Name - Personal Website</title>
     <style>
         body {
             font-family: 'Helvetica Neue', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8;
+            background-color: #1a1a1a; /* Dark background color for dark mode */
+            color: #fff; /* Light text color for dark mode */
             overflow-x: hidden;
+            transition: background-color 0.5s, color 0.5s; /* Smooth transition for dark mode */
         }
 
         header {
@@ -60,6 +61,9 @@
             padding: 1em 0;
             background-color: #111;
             color: #fff;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
         }
 
         /* Static loading screen styles */
@@ -88,31 +92,37 @@
     </div>
 
     <header>
-        <h1>Ronalds</h1>
+        <h1>Your Name</h1>
         <p>Web Developer</p>
     </header>
 
     <section class="intro">
         <h2>Welcome to My Website</h2>
-        <p>blah blah blah blah.</p>
+        <p>This is a brief introduction about myself. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+            facilisi. Proin auctor est a magna bibendum, vel fermentum enim sodales.</p>
     </section>
 
     <section class="bio">
         <h2>Biography</h2>
-        <p>BLAH BLAH BKAL BLA?H.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Proin auctor est a magna bibendum,
+            vel fermentum enim sodales. Phasellus vel justo ac elit congue tincidunt. Nulla facilisi. Maecenas sed
+            vestibulum ex, id venenatis mi. Suspendisse potenti. Morbi consectetur neque vitae sapien rutrum, vel
+            tristique dui scelerisque. Quisque sollicitudin congue lorem, sit amet tincidunt ex vestibulum nec.</p>
     </section>
 
-<section class="projects">
-    <div class="project">
-        <h3>ggradio</h3>
-        <p>legit radio</p>
-    </div>
-    <div class="project">
-        <h3>CyberWar.lv</h3>
-        <p>Project probably older than you.</p>
-    </div>
-    <!-- Add more project divs as needed -->
-</section>
+    <section class="projects">
+        <div class="project">
+            <img src="project1.jpg" alt="Project 1">
+            <h3>Project 1</h3>
+            <p>Description of Project 1.</p>
+        </div>
+        <div class="project">
+            <img src="project2.jpg" alt="Project 2">
+            <h3>Project 2</h3>
+            <p>Description of Project 2.</p>
+        </div>
+        <!-- Add more project divs as needed -->
+    </section>
 
     <footer>
         <p>&copy; 2024 Your Name. All rights reserved.</p>
