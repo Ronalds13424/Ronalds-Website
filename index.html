@@ -1,10 +1,13 @@
+Certainly! If you want the loading screen to be static (not animated), you can simplify the CSS. Here's the modified version:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ronalds - Personal Website</title>
+    <title>Your Name - Personal Website</title>
     <style>
         body {
             font-family: 'Helvetica Neue', sans-serif;
@@ -61,7 +64,7 @@
             color: #fff;
         }
 
-        /* Loading screen styles */
+        /* Static loading screen styles */
         .loading-screen {
             position: fixed;
             top: 0;
@@ -75,38 +78,7 @@
             z-index: 9999;
             color: #fff;
             font-size: 24px;
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        .loading-dots {
-            overflow: hidden;
-            white-space: nowrap;
-            animation: dotsWrite 3s steps(3) infinite;
-        }
-
-        @keyframes dotsWrite {
-            from, 20% {
-                width: 0;
-            }
-
-            40% {
-                width: 100%;
-            }
-
-            60%, to {
-                width: 0;
-            }
+            display: none; /* Initially hidden */
         }
     </style>
 </head>
@@ -114,12 +86,12 @@
 <body>
 
     <div class="loading-screen">
-        <div class="loading-dots">Loading Website</div>
+        Loading...
     </div>
 
     <header>
-        <h1>Ronalds</h1>
-        <p>Hey im Ronalds a web developer, owner of https://ggradio.pro and also owner of https://cyberwar.lv</p>
+        <h1>Your Name</h1>
+        <p>Web Developer</p>
     </header>
 
     <section class="intro">
@@ -155,13 +127,17 @@
     </footer>
 
     <script>
+        // Show loading screen initially
+        document.querySelector('.loading-screen').style.display = 'flex';
+
         // Hide loading screen after 5 seconds
-        window.addEventListener('load', function () {
-            setTimeout(function () {
-                document.querySelector('.loading-screen').style.display = 'none';
-            }, 5000);
-        });
+        setTimeout(function () {
+            document.querySelector('.loading-screen').style.display = 'none';
+        }, 5000);
     </script>
 </body>
 
 </html>
+```
+
+In this version, the loading screen is initially hidden (`display: none;`), and it is shown using JavaScript when the page loads. After 5 seconds, the loading screen is hidden again. The loading screen itself does not have any animations in this version. Adjust the duration or any other styles as needed for your design.
