@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ronalds - Personal Website</title>
+    <title>Your Name - Personal Website</title>
     <style>
         /* Your existing styles... */
 
@@ -21,6 +21,34 @@
             z-index: 9999;
             color: #fff;
             font-size: 24px;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .loading-text {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: textWrite 3s steps(40) forwards;
+        }
+
+        @keyframes textWrite {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -28,7 +56,7 @@
 <body>
 
     <div class="loading-screen">
-        Loading...
+        <div class="loading-text">Loading...</div>
     </div>
 
     <header>
@@ -53,11 +81,11 @@
     </footer>
 
     <script>
-        // Hide loading screen after 3 seconds
+        // Hide loading screen after 5 seconds
         window.addEventListener('load', function () {
             setTimeout(function () {
                 document.querySelector('.loading-screen').style.display = 'none';
-            }, 3000);
+            }, 5000);
         });
     </script>
 </body>
