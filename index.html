@@ -35,19 +35,23 @@
             }
         }
 
-        .loading-text {
+        .loading-dots {
             overflow: hidden;
             white-space: nowrap;
-            animation: textWrite 3s steps(40) forwards;
+            animation: dotsWrite 1.5s steps(3) infinite;
         }
 
-        @keyframes textWrite {
-            from {
+        @keyframes dotsWrite {
+            from, 20% {
                 width: 0;
             }
 
-            to {
+            40% {
                 width: 100%;
+            }
+
+            60%, to {
+                width: 0;
             }
         }
     </style>
@@ -56,7 +60,7 @@
 <body>
 
     <div class="loading-screen">
-        <div class="loading-text">Loading...</div>
+        <div class="loading-dots">Loading...</div>
     </div>
 
     <header>
