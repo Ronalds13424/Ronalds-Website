@@ -74,6 +74,9 @@ footer {
     padding: 1em 0;
     background-color: #111;
     color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 /* Static loading screen styles */
