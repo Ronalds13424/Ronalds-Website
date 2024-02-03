@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio Widget</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
+        background-color: #282828;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        color: #bfbfbf !important;
+      }
+
+      .radio {
+        background-color: #1c1c21;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 1);
+      }
+
+      .plyr--audio .plyr__controls {
+        background: var(--plyr-audio-controls-background, #1c1c21);
+        border-radius: inherit;
+        color: #b6bdc9;
+        color: var(--plyr-audio-control-color, #b6bdc9);
+        padding: 10px;
+        padding: var(--plyr-control-spacing, 10px);
+      }
+
+      .plyr--full-ui input[type="range"] {
+        color: var(--plyr-range-fill-background, var(--plyr-color-main, var(--plyr-color-main, hsla(198, 60%, 75%, 1))));
+      }
+
+      .album_art {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px 10px 0 0;
+      }
+
+      .current_album_art_player {
+        display: block;
+        width: 350px;
+        height: 350px;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      .player_album_art {
+        position: absolute;
+        bottom: 25%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        border: 3px solid #fff;
+        width: 150px;
+        height: auto;
+      }
+
+      .radio_stats {
+        padding: 15px;
+      }
+
+      .current_dj {
+        font-size: 18px;
+        font-weight: bold;
+        max-width: 300px;
+      }
+
+      .current_song_title {
+        max-width: 300px;
+      }
+
+      .current_song_artist {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .newplayer {
+        max-width: 320px;
+      }
+
+      .dark-mode-toggle {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dark-mode-toggle" onclick="toggleDarkMode()">
+      <i class="fas fa-moon"></i>
+    </div>
+    <div class="radio">
+      <div class="album_art" draggable="false">
+        <img class="current_album_art_player" id="albumArt" src="img/logo.png">
+        <img class="player_album_art presenter_image" draggable="false" id="streamerArt" src="img/logo.png">
+      </div>
+      <div class="radio_stats">
+        <div class="listeners_count" id="listenersCount">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <span id="listenerCount">Loading...</span>
+        </div>
+        <div class="current_dj">
+          <span id="streamerName">AutoDJ</span>
+        </div>
+        <div class="current_song_artist">
+          <div class="current_song_title" id="songTitle">Loading...</div>
+        </div>
+        <div class="newplayer">
+          <audio id="player" autostart="true" autoplay="true">
+            <source src="https://panel.deepradio.co.uk:8020/mp3" type="audio/mp3">
+            <source src="https://panel.deepradio.co.uk:8020/mp3" type="audio/mpeg"> Update your browser! Your browser doesn't support playing audio.
+          </audio>
+        </div>
+      </div>
+    </div>
+    <script>
+      function toggleDarkMode() {
+        // Redirect to /dark.html
+        window.location.href = "/player";
+      }
+      const plyr = new Plyr("#player", {
+        listeners: {
+          seek: function customSeekBehavior(e) {
+            var currentTime = plyr.currentTime;
+            var newTime = _getTargetTime(plyr, e);
+            // We only want rewind functionality
+            // Therefore, disallow moving forward
+            if (newTime > currentTime) {
+              e.preventDefault();
+              console.log(`prevented`);
+              return false;
+            }
+            return true;
+          }
+        }
+      });
+      // This code was pulled from plyr v2
+      // There's probably a much nicer way of doing this
+      function _getTargetTime(plyr, input) {
+        if (typeof input === "object" && (input.type === "input" || input.type === "change")) {
+          return input.target.value / input.target.max * plyr.media.duration;
+        } else {
+          // We're assuming its a number
+          return Number(input);
+        }
+      }
+
+      function updateSongTitleAndAlbumArt() {
+        fetch("https://live.deepcoder.co.uk/api/nowplaying/ggradiofm").then(response => response.json()).then(data => {
+          var songTitleElement = document.getElementById("songTitle");
+          var albumArtElement = document.querySelector(".current_album_art_player");
+          var streamerNameElement = document.getElementById("streamerName");
+          var streamerArtElement = document.getElementById("streamerArt");
+          var streamerListenerElement = document.getElementById("listenerCount");
+          if (songTitleElement && albumArtElement && streamerNameElement && streamerArtElement) {
+            var songTitle = data.now_playing.song.text || "Unknown Title";
+            var albumArt = data.now_playing.song.art || "img/logo.png";
+            var streamerName = data.live.streamer_name || "AutoDJ";
+            var streamerArt = data.live.art || "img/logo.png";
+            var listeners = data.listeners.total || "Unable to get listeners!";
+            // Update song title, album art, streamer name, and streamer art
+            songTitleElement.textContent = songTitle;
+            albumArtElement.src = albumArt;
+            streamerNameElement.textContent = streamerName;
+            streamerArtElement.src = streamerArt;
+            streamerListenerElement.textContent = listeners;
+          }
+        }).catch(error => console.error("Error fetching data:", error));
+      }
+      updateSongTitleAndAlbumArt();
+      setInterval(updateSongTitleAndAlbumArt, 10000);
+    </script>
+  </body>
+</html>
