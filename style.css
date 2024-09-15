@@ -1,0 +1,152 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #92b3e8;
+}
+
+/* Header Styles */
+header {
+    background: #7786a8;
+    color: #0b100d;
+    padding: 1rem 0;
+    text-align: center;
+    border-bottom: 3px solid #a2eebb;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+/* Section Styles */
+section {
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 800px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* About Me Section */
+#about-me {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+#about-me h2 {
+    color: #333;
+}
+
+#about-me p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Contact Section */
+#contact {
+    background: #91c2e3;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+#contact h2 {
+    margin-top: 0;
+    color: #003d6b;
+}
+
+#contact p {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: #333;
+}
+
+#contact strong {
+    display: inline-block;
+    width: 80px;
+}
+
+#contact a {
+    color: #004999;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#contact a:hover {
+    color: #003366;
+    text-decoration: underline;
+}
+
+/* Footer Styles */
+footer {
+    background: #333;
+    color: #b0d3f0;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    border-top: 3px solid #a2eebb;
+}
+
+/* Buttons */
+button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Forms */
+form {
+    margin-top: 1rem;
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+textarea {
+    height: 150px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    section {
+        padding: 1rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
