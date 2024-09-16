@@ -1,87 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Page Not Found :(</title>
+    <meta charset="UTF-8">
+    <title>404 - Not Found</title>
     <style>
-        ::selection {
-            background: #b3d4fc;
-            text-shadow: none;
-        }
-
-        html {
-            padding: 30px 10px;
-            font-size: 20px;
-            line-height: 1.4;
-            color: #737373;
-            background: #f0f0f0;
-        }
-
-        body {
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            max-width: 500px;
-            padding: 30px 20px;
-            border: 1px solid #b3b3b3;
-            border-radius: 4px;
-            margin: 0 auto;
-            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1), inset 0 1px 0 #fff;
-            background: #fcfcfc;
-        }
-
-        h1 {
-            margin: 0 10px;
-            font-size: 50px;
-            text-align: center;
-            color: #333;
-        }
-
-        h1 span {
-            color: #bbb;
-        }
-
-        p {
-            margin: 1em 0;
-            text-align: center;
-        }
-
-        ul {
-            padding: 0 0 0 40px;
-            margin: 1em 0;
-        }
-
-        #url {
-            font-weight: bold;
-            color: #333;
-        }
-
-        #countdown {
-            font-weight: bold;
-            color: #ff0000;
-        }
+        body { margin: 0; font-family: Arial, sans-serif; background: #121212; color: #eee; text-align: center; }
+        h1 { font-size: 48px; margin: 50px 0 20px; }
+        p { margin: 20px 0; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Not found <span>:(</span></h1>
-        <p>Sorry, but the page you were trying to view does not exist.</p>
-        <p>The URL you entered: <strong id="url"></strong></p>
-        <p>You will be redirected to the homepage in <span id="countdown">5</span> seconds.</p>
-    </div>
-
+    <h1>404 - Not Found</h1>
+    <p>Redirecting to homepage in <span id="countdown">5</span> seconds...</p>
     <script>
-        document.getElementById('url').textContent = window.location.href;
-
-        var countdownElement = document.getElementById('countdown');
-        var countdown = 5;
-        var interval = setInterval(function() {
-            countdown--;
-            countdownElement.textContent = countdown;
-
-            if (countdown === 0) {
-                clearInterval(interval);
-                window.location.href = '/';
-            }
-        }, 1000);
+        let countdown = 5, el = document.getElementById('countdown');
+        setInterval(() => { countdown--; el.textContent = countdown; if (countdown === 0) location.href = '/'; }, 1000);
     </script>
 </body>
 </html>
