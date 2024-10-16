@@ -6,8 +6,12 @@
     <title>Ronalds1398</title>
     <link rel="icon" type="image/png" href="/images/main.png" sizes="32x32" />
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="loading-screen">
+        <h2>Loading...</h2>
+    </div>
     <nav>
         <a href="/">Home</a>
         <a href="https://github.com/Ronalds13424">Github</a>
@@ -18,6 +22,10 @@
         <p>If you want to chat or collaborate, feel free to reach out: 
         <a href="mailto:ronalds1398@gmail.com">ronalds1398@gmail.com</a></p>
         <p>Discord: ronaldino1398</p>
-    </div>
+    <script>
+        window.onload = function() {
+            document.getElementById("loading-screen").style.display = "none";
+        };
+    </script>
 </body>
 </html>
