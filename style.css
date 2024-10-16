@@ -47,40 +47,7 @@ h1, p {
     margin: 10px;
 }
 
-.hobbies, .feedback-modal {
-    margin: 20px 0;
-    padding: 20px;
-    border: 1px solid #4caf50;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-}
-
-.hobbies ul {
-    list-style-type: none;
-}
-
-.hobbies li {
-    margin: 10px 0;
-}
-
-#present, #feedback {
-    font-size: 30px;
-    cursor: pointer;
-    position: fixed;
-}
-
-#present {
-    bottom: 80px;
-    right: 20px;
-}
-
-#feedback {
-    bottom: 20px;
-    right: 20px;
-    color: blue;
-}
-
-.feedback-modal {
+.modal {
     display: none;
     position: fixed;
     z-index: 999;
@@ -91,7 +58,7 @@ h1, p {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.feedback-content {
+.modal-content {
     background: #121212;
     margin: 15% auto;
     padding: 20px;
@@ -101,38 +68,14 @@ h1, p {
     border-radius: 8px;
 }
 
-textarea {
-    width: 100%;
-    height: 80px;
-    border-radius: 5px;
-    border: 1px solid #4caf50;
-    background: #1a1a1a;
+span.close {
     color: #eee;
-}
-
-.star-rating {
-    display: flex;
-}
-
-.star-rating input {
-    display: none;
-}
-
-.star-rating label {
+    float: right;
     font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+span.close:hover {
     color: #4caf50;
-    cursor: pointer;
-}
-
-button {
-    background: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background: #45a049;
 }
