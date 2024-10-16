@@ -1,5 +1,10 @@
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: 'Roboto', sans-serif;
     background: #121212;
     color: #eee;
@@ -15,7 +20,6 @@ nav {
     width: 100%;
     background: #1a1a1a;
     padding: 10px;
-    text-align: center;
     position: fixed;
     top: 0;
 }
@@ -33,107 +37,102 @@ nav a:hover {
 
 .content {
     margin-top: 60px;
-    max-width: 600px;
+}
+
+.quote-section blockquote {
+    margin: 20px 0;
+}
+
+h1, p {
+    margin: 10px;
+}
+
+.hobbies, .feedback-modal {
+    margin: 20px 0;
     padding: 20px;
-    border-radius: 8px;
+    border: 1px solid #4caf50;
     background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
 }
 
-h1 {
-    margin: 10px;
-    font-size: 36px;
+.hobbies ul {
+    list-style-type: none;
 }
 
-p {
-    margin: 10px;
-    line-height: 1.5;
+.hobbies li {
+    margin: 10px 0;
 }
 
-a {
-    color: #4caf50;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-#loading-screen {
+#present, #feedback {
+    font-size: 30px;
+    cursor: pointer;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #121212;
-    color: #eee;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    z-index: 1000;
 }
 
 #present {
-    position: fixed;
-    bottom: 20px;
+    bottom: 80px;
     right: 20px;
-    font-size: 50px;
-    cursor: pointer;
 }
 
-.modal {
+#feedback {
+    bottom: 20px;
+    right: 20px;
+    color: blue;
+}
+
+.feedback-modal {
     display: none;
     position: fixed;
-    z-index: 1001;
+    z-index: 999;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.modal-content {
-    background-color: #1a1a1a;
+.feedback-content {
+    background: #121212;
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 300px;
+    border: 1px solid #4caf50;
+    width: 80%;
+    max-width: 400px;
     border-radius: 8px;
-    text-align: center;
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+textarea {
+    width: 100%;
+    height: 80px;
+    border-radius: 5px;
+    border: 1px solid #4caf50;
+    background: #1a1a1a;
+    color: #eee;
 }
 
-.close:hover,
-.close:focus {
+.star-rating {
+    display: flex;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    font-size: 30px;
     color: #4caf50;
-    text-decoration: none;
     cursor: pointer;
 }
-.quote-section {
-    margin: 20px 0;
-    padding: 20px;
-    border-left: 5px solid #4caf50;
-    background: rgba(255, 255, 255, 0.1);
-    font-style: italic;
+
+button {
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-blockquote {
-    margin: 0;
-}
-
-blockquote p {
-    font-size: 20px;
-}
-
-blockquote footer {
-    margin-top: 10px;
-    font-size: 16px;
-    color: #4caf50;
+button:hover {
+    background: #45a049;
 }
