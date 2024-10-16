@@ -22,6 +22,7 @@ nav {
     padding: 10px;
     position: fixed;
     top: 0;
+    z-index: 1000;
 }
 
 nav a {
@@ -37,6 +38,7 @@ nav a:hover {
 
 .content {
     margin-top: 60px;
+    padding: 0 15px;
 }
 
 .quote-section {
@@ -50,7 +52,12 @@ nav a:hover {
     margin: 0;
 }
 
-h1, p {
+h1 {
+    font-size: 2em;
+    margin: 10px;
+}
+
+p {
     margin: 10px;
 }
 
@@ -85,4 +92,38 @@ span.close {
 
 span.close:hover {
     color: #4caf50;
+}
+
+#present {
+    font-size: 50px;
+    cursor: pointer;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    transition: transform 0.3s;
+}
+
+#present:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    nav a {
+        font-size: 12px;
+        margin: 0 10px;
+    }
+
+    .quote-section {
+        padding: 15px;
+    }
+
+    #present {
+        font-size: 40px;
+        bottom: 60px;
+        right: 15px;
+    }
 }
