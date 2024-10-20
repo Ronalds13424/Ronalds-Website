@@ -13,6 +13,13 @@
             margin: 20px 0;
             border-radius: 8px;
             border: 1px solid #4caf50;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .project:hover {
+            transform: scale(1.03);
+            background-color: #2b2b2b;
         }
 
         .project h2 {
@@ -26,15 +33,6 @@
             color: #ccc;
             margin-bottom: 10px;
         }
-
-        .project a {
-            text-decoration: none;
-            color: #4caf50;
-        }
-
-        .project a:hover {
-            color: #8bc34a;
-        }
     </style>
 </head>
 <body>
@@ -46,10 +44,9 @@
 
     <div class="content">
         <h1>My Projects</h1>
-        <div class="project">
+        <div class="project" onclick="window.location.href='github.com/Ronalds13424/Ronalds-Website'">
             <h2>Project 1: My Website</h2>
             <p>This is my personal website where I showcase my projects, and a little about myself.</p>
-            <a href="https://github.com/Ronalds13424/personal-portfolio" target="_blank">View on GitHub</a>
         </div>
     </div>
 </body>
