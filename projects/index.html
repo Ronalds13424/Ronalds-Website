@@ -44,10 +44,16 @@
 
     <div class="content">
         <h1>My Projects</h1>
-        <div class="project" onclick="window.location.href='github.com/Ronalds13424/Ronalds-Website'">
+        <div class="project" id="project1">
             <h2>Project 1: My Website</h2>
             <p>This is my personal website where I showcase my projects, and a little about myself.</p>
         </div>
     </div>
+
+    <script>
+        document.getElementById("project1").addEventListener("click", function() {
+            window.location.href = "https://github.com/Ronalds13424/Ronalds-Website";
+        });
+    </script>
 </body>
 </html>
